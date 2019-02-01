@@ -24,7 +24,9 @@ public class ComDimension extends BaseDimension {
         ComDimension anotherComDimension = (ComDimension) o;
         //先年月日
         int result = this.dateDimension.compareTo(anotherComDimension.dateDimension);
-        if(result != 0) return result;
+        if(result != 0) {
+            return result;
+        }
         //比较电话号
         result = this.contactDimension.compareTo(anotherComDimension.contactDimension);
         return result;
