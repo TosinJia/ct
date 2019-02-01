@@ -21,9 +21,16 @@
 		<name>dfs.replication</name>
 		<value>1</value>
 	</property>
-	
+	<property>
+		<name>dfs.namenode.name.dir</name>
+		<value>/root/hd/dfs/name</value>
+	</property>
+	<property>
+		<name>dfs.datanode.data.dir</name>
+		<value>/root/hd/dfs/data</value>
+	</property>
 	<property>
 		<name>dfs.namenode.secondary.http-address</name>
-		<value>bigdata13:50090</value>
+		<value>bd-01:50090</value>
 	</property>
 </configuration>

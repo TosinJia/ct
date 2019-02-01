@@ -19,11 +19,10 @@
 <configuration>
 	<property>
 		<name>fs.defaultFS</name>
-		<value>hdfs://bigdata11:9000</value>
+		<value>hdfs://bd:9000</value>
 	</property>
-
 	<property>
 		<name>hadoop.tmp.dir</name>
-		<value>/opt/module/hadoop-2.8.4/data/tmp</value>
+		<value>/root/hd/hadoop-2.8.4/data/tmp</value>
 	</property>
 </configuration>
