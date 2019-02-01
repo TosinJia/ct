@@ -22,35 +22,42 @@
 -->
 
 <configuration>
-	<property>     
-		<name>hbase.rootdir</name>     
-		<value>hdfs://bigdata11:9000/hbase</value>   
+	<!--设置namenode所在的位置，通过rootdir设置，也就是设置hdfs中存放的路径-->
+	<property>
+		<name>hbase.rootdir</name>
+		<value>hdfs://bd:9000/hbase</value>
 	</property>
 
-	<property> 
+	<!--是否开启集群-->
+	<property>
 		<name>hbase.cluster.distributed</name>
 		<value>true</value>
 	</property>
 
-   <!-- 0.98后的新变动，之前版本没有.port,默认端口为60000 -->
+	<!--0.98后新变动，之前版本没有.port，默认端口为60000-->
 	<property>
 		<name>hbase.master.port</name>
 		<value>16000</value>
 	</property>
 
-	<property>   
+	<!--zookeeper集群的位置-->
+	<property>
 		<name>hbase.zookeeper.quorum</name>
-		<value>bigdata11:2181,bigdata12:2181,bigdata13:2181</value>
+		<value>bd:2181,bd-01:2181,bd-02:2181</value>
 	</property>
 
-	<property>   
-		<name>hbase.zookeeper.property.dataDir</name>
-	 	<value>/opt/module/zookeeper-3.4.5/zkData</value>
-	</property>
+	<!--hbase的元数据信息存储在zookeeper的位置-->
 	<property>
-	        <name>hbase.master.maxclockskew</name>
-	        <value>180000</value>
- 	</property>
+		<name>hbase.zookeeper.property.dataDir</name>
+		<value>/root/hd/zookeeper-3.4.10/zkData</value>
+	</property>
+	<!--防止HBase节点之间时间不一致造成regionserver启动失败，默认值是30000-->
+	<property>
+		<name>hbase.master.maxclockskew</name>
+		<value>180000</value>
+	</property>
+
+	<!--协处理器 没有相关jar导致regionserver无法启动-->
 	<property>
 	    <name>hbase.coprocessor.region.classes</name>
 	    <value>hbase.CalleeWriteObserver</value>
