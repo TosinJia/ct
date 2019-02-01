@@ -78,12 +78,15 @@ public class HBaseUtil {
         Connection connection = ConnectionFactory.createConnection(conf);
         Admin admin = connection.getAdmin();
 
-        if(isExistTable(conf, tableName)) return;
+        if(isExistTable(conf, tableName)) {
+            return;
+        }
 
         HTableDescriptor htd = new HTableDescriptor(TableName.valueOf(tableName));
         for(String cf: columnFamily){
             htd.addFamily(new HColumnDescriptor(cf));
         }
+        //协处理器
         htd.addCoprocessor("hbase.CalleeWriteObserver");
         admin.createTable(htd, genSplitKeys(regions));
         close(admin,connection);
