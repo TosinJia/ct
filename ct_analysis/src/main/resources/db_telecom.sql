@@ -1,3 +1,5 @@
+CREATE DATABASE db_telecom;
+USE db_telecom;
 /*
 Navicat MySQL Data Transfer
 
